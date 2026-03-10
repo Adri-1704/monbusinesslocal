@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { Video, Eye, MessageSquare, Megaphone, Sparkles, CheckCircle2 } from "lucide-react";
+import { Video, ShieldCheck, Eye, MessageSquare, Megaphone, Sparkles, CheckCircle2 } from "lucide-react";
 
 const advantages = [
   {
@@ -10,6 +10,12 @@ const advantages = [
     icon: Video,
     image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=400&fit=crop",
     color: "bg-red-50 text-red-600",
+  },
+  {
+    key: "certifiedLogo",
+    icon: ShieldCheck,
+    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&h=400&fit=crop",
+    color: "bg-emerald-50 text-emerald-600",
   },
   {
     key: "visibility",

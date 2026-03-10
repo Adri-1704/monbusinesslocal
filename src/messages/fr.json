@@ -185,8 +185,8 @@
       "title": "La plateforme des commerces locaux de Lausanne",
       "subtitle": "Rejoignez l'annuaire de référence des commerces lausannois et gagnez en visibilité auprès des habitants.",
       "benefit1": "1 vidéo de présentation de votre commerce diffusée sur nos réseaux",
-      "benefit2": "Fiche commerce complète avec photos, produits et avis",
-      "benefit3": "Visibilité auprès de milliers d'habitants de Lausanne",
+      "benefit2": "1 logo certifié Monbusinesslocal à afficher sur votre vitrine",
+      "benefit3": "Fiche commerce complète avec photos, produits et avis",
       "socialProof": "Rejoignez les commerçants qui nous font confiance",
       "cta": "Demander à être contacté",
       "ctaSecondary": "Voir les tarifs"
@@ -227,6 +227,13 @@
         "point1": "Tournage professionnel dans votre commerce",
         "point2": "Diffusion sur tous les réseaux sociaux du site",
         "point3": "Contenu réutilisable pour votre propre communication"
+      },
+      "certifiedLogo": {
+        "title": "Logo certifié pour votre vitrine",
+        "desc": "Recevez un logo certifié Monbusinesslocal à afficher sur la vitrine de votre commerce. Un gage de confiance pour vos clients.",
+        "point1": "Sticker et logo haute qualité prêt à poser",
+        "point2": "Signal de confiance pour les passants et clients",
+        "point3": "Distinction visible parmi les commerces du quartier"
       },
       "visibility": {
         "title": "Visibilité maximale",
@@ -321,6 +328,7 @@
       "includedTitle": "Inclus dans tous les abonnements",
       "included": {
         "videoPresentation": "1 vidéo de présentation diffusée sur nos réseaux",
+        "certifiedLogo": "1 logo certifié à afficher sur votre vitrine",
         "presence": "Présence de votre établissement",
         "photoHighlight": "Mise en avant photos",
         "menuDisplay": "Affichage des produits & services",

@@ -9,12 +9,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 const includedFeatures = [
+  { key: "videoPresentation", icon: Video },
+  { key: "certifiedLogo", icon: ShieldCheck },
   { key: "presence", icon: Store },
   { key: "photoHighlight", icon: Camera },
   { key: "menuDisplay", icon: UtensilsCrossed },
   { key: "addressContact", icon: MapPin },
   { key: "openingHours", icon: Clock },
-  { key: "videoPresentation", icon: Video },
 ];
 
 const earlyBirdPlans = [
