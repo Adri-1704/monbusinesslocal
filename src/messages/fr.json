@@ -184,9 +184,9 @@
     "hero": {
       "title": "La plateforme des commerces locaux de Lausanne",
       "subtitle": "Rejoignez l'annuaire de référence des commerces lausannois et gagnez en visibilité auprès des habitants.",
-      "benefit1": "Visibilité auprès de milliers d'habitants de Lausanne",
+      "benefit1": "1 vidéo de présentation de votre commerce diffusée sur nos réseaux",
       "benefit2": "Fiche commerce complète avec photos, produits et avis",
-      "benefit3": "Outils marketing pour booster votre présence locale",
+      "benefit3": "Visibilité auprès de milliers d'habitants de Lausanne",
       "socialProof": "Rejoignez les commerçants qui nous font confiance",
       "cta": "Demander à être contacté",
       "ctaSecondary": "Voir les tarifs"
@@ -221,6 +221,13 @@
     "advantages": {
       "title": "Pourquoi rejoindre Monbusinesslocal ?",
       "subtitle": "Tout ce dont vous avez besoin pour développer votre clientèle locale",
+      "video": {
+        "title": "1 vidéo de présentation offerte",
+        "desc": "Notre équipe réalise une vidéo professionnelle de votre commerce, diffusée sur tous nos réseaux sociaux (Instagram, TikTok, Facebook, YouTube).",
+        "point1": "Tournage professionnel dans votre commerce",
+        "point2": "Diffusion sur tous les réseaux sociaux du site",
+        "point3": "Contenu réutilisable pour votre propre communication"
+      },
       "visibility": {
         "title": "Visibilité maximale",
         "desc": "Votre commerce apparaît dans les recherches de milliers d'habitants de Lausanne.",
@@ -313,6 +320,7 @@
       "spotsLeft": "Il reste {count} places en offre Early Bird",
       "includedTitle": "Inclus dans tous les abonnements",
       "included": {
+        "videoPresentation": "1 vidéo de présentation diffusée sur nos réseaux",
         "presence": "Présence de votre établissement",
         "photoHighlight": "Mise en avant photos",
         "menuDisplay": "Affichage des produits & services",

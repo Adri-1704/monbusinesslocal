@@ -2,9 +2,15 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { Eye, MessageSquare, Megaphone, Sparkles, CheckCircle2 } from "lucide-react";
+import { Video, Eye, MessageSquare, Megaphone, Sparkles, CheckCircle2 } from "lucide-react";
 
 const advantages = [
+  {
+    key: "video",
+    icon: Video,
+    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=400&fit=crop",
+    color: "bg-red-50 text-red-600",
+  },
   {
     key: "visibility",
     icon: Eye,
