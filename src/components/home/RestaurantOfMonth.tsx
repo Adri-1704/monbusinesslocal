@@ -4,14 +4,56 @@ import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Star, MapPin, ChevronLeft, ChevronRight, Clock, Quote } from "lucide-react";
+import { Star, MapPin, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { mockRestaurants, mockReviews, type Restaurant } from "@/data/mock-restaurants";
+import type { Restaurant } from "@/data/mock-restaurants";
 import { getLocalizedName } from "@/lib/locale-helpers";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
+
+const placeholderImages = [
+  "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+  "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+  "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80",
+  "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80",
+  "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&q=80",
+];
+
+function mapDbToRestaurant(row: Record<string, unknown>, index: number): Restaurant {
+  return {
+    id: row.id as string,
+    slug: row.slug as string,
+    nameFr: row.name_fr as string,
+    nameDe: row.name_de as string,
+    nameEn: row.name_en as string,
+    descriptionFr: (row.description_fr as string) || "",
+    descriptionDe: (row.description_de as string) || "",
+    descriptionEn: (row.description_en as string) || "",
+    cuisineType: (row.cuisine_type as string) || "",
+    canton: row.canton as string,
+    city: row.city as string,
+    address: (row.address as string) || "",
+    postalCode: (row.postal_code as string) || "",
+    latitude: (row.latitude as number) || 0,
+    longitude: (row.longitude as number) || 0,
+    phone: (row.phone as string) || "",
+    email: (row.email as string) || "",
+    website: (row.website as string) || "",
+    priceRange: parseInt(row.price_range as string || "2") as 1 | 2 | 3 | 4,
+    avgRating: parseFloat(row.avg_rating as string) || 0,
+    reviewCount: (row.review_count as number) || 0,
+    openingHours: (row.opening_hours as Record<string, { open: string; close: string }>) || {},
+    features: (row.features as string[]) || [],
+    coverImage: (row.cover_image as string) || placeholderImages[index % placeholderImages.length],
+    images: [],
+    isFeatured: (row.is_featured as boolean) || false,
+    isPublished: (row.is_published as boolean) || true,
+    menuItems: [],
+  };
+}
 
 function PriceRange({ range }: { range: number }) {
   return (
@@ -37,92 +79,11 @@ function isOpenNow(openingHours: Record<string, { open: string; close: string } 
   return currentMinutes >= openH * 60 + openM && currentMinutes <= closeH * 60 + closeM;
 }
 
-function RestaurantSlideCard({ restaurant, locale }: { restaurant: Restaurant; locale: string }) {
+function CommerceSlideCard({ restaurant, locale }: { restaurant: Restaurant; locale: string }) {
   const t = useTranslations("featured");
   const tR = useTranslations("restaurant");
   const name = getLocalizedName(restaurant, locale);
   const open = isOpenNow(restaurant.openingHours);
-
-  // Get the best review for this restaurant
-  const bestReview = mockReviews
-    .filter((r) => r.restaurantId === restaurant.id)
-    .sort((a, b) => b.rating - a.rating)[0];
-
-  return (
-    <div className="min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
-      <Link href={`/${locale}/commerces/${restaurant.slug}`}>
-        <div className="group overflow-hidden rounded-xl border bg-white shadow-sm transition-all hover:shadow-lg">
-          <div className="relative h-52 overflow-hidden">
-            <Image
-              src={restaurant.coverImage}
-              alt={name}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            {restaurant.isFeatured && (
-              <Badge className="absolute left-3 top-3 bg-[var(--color-mbl)] text-white border-0 animate-pulse-gentle">
-                {t("badge")}
-              </Badge>
-            )}
-            {/* Open/Closed badge */}
-            <div className="absolute bottom-3 left-3">
-              <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${
-                open ? "bg-green-500/90 text-white" : "bg-gray-800/80 text-gray-200"
-              }`}>
-                <Clock className="h-3 w-3" />
-                {open ? tR("open") : tR("closed")}
-              </span>
-            </div>
-            {/* Rating badge */}
-            <div className="absolute bottom-3 right-3">
-              <span className="inline-flex items-center gap-1 rounded-lg bg-white/95 px-2 py-1 text-sm font-bold text-gray-900 shadow-sm">
-                <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-                {restaurant.avgRating}
-              </span>
-            </div>
-          </div>
-          <div className="p-4">
-            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[var(--color-mbl)] transition-colors">
-              {name}
-            </h3>
-            <div className="mt-1 flex items-center gap-2">
-              <span className="text-sm text-gray-500">({restaurant.reviewCount} {tR("reviews")})</span>
-              <span className="text-gray-300">|</span>
-              <PriceRange range={restaurant.priceRange} />
-            </div>
-            <div className="mt-2 flex items-center gap-1.5 text-sm text-gray-500">
-              <MapPin className="h-3.5 w-3.5" />
-              {restaurant.city}, {restaurant.canton.toUpperCase().slice(0, 2)}
-            </div>
-            {/* Review snippet */}
-            {bestReview && (
-              <div className="mt-3 flex items-start gap-2 rounded-lg bg-gray-50 p-2.5">
-                <Quote className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-mbl)] rotate-180" />
-                <p className="text-xs text-gray-600 line-clamp-2 italic">
-                  {bestReview.comment.length > 80
-                    ? bestReview.comment.slice(0, 80) + "…"
-                    : bestReview.comment}
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </Link>
-    </div>
-  );
-}
-
-function RestaurantSlideCardCompact({ restaurant, locale }: { restaurant: Restaurant; locale: string }) {
-  const t = useTranslations("featured");
-  const tR = useTranslations("restaurant");
-  const name = getLocalizedName(restaurant, locale);
-  const open = isOpenNow(restaurant.openingHours);
-
-  // Get the best review for this restaurant
-  const bestReview = mockReviews
-    .filter((r) => r.restaurantId === restaurant.id)
-    .sort((a, b) => b.rating - a.rating)[0];
 
   return (
     <Link href={`/${locale}/commerces/${restaurant.slug}`}>
@@ -137,8 +98,8 @@ function RestaurantSlideCardCompact({ restaurant, locale }: { restaurant: Restau
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           {restaurant.isFeatured && (
-            <Badge className="absolute left-3 top-3 bg-[var(--color-mbl)] text-white border-0 text-xs px-2.5 py-0.5 animate-pulse-gentle">
-              ⭐ {t("badge")}
+            <Badge className="absolute left-3 top-3 bg-[var(--color-mbl)] text-white border-0 text-xs px-2.5 py-0.5">
+              {t("badge")}
             </Badge>
           )}
           <div className="absolute bottom-3 left-3">
@@ -163,7 +124,7 @@ function RestaurantSlideCardCompact({ restaurant, locale }: { restaurant: Restau
           <div className="mt-1.5 flex items-center gap-2">
             <div className="flex items-center gap-1 text-sm text-gray-500">
               <MapPin className="h-3.5 w-3.5 shrink-0" />
-              <span className="truncate">{restaurant.city}, {restaurant.canton.toUpperCase().slice(0, 2)}</span>
+              <span className="truncate">{restaurant.city}</span>
             </div>
             <span className="text-gray-300">|</span>
             <PriceRange range={restaurant.priceRange} />
@@ -171,17 +132,6 @@ function RestaurantSlideCardCompact({ restaurant, locale }: { restaurant: Restau
           <div className="mt-1 text-xs text-gray-400">
             ({restaurant.reviewCount} {tR("reviews")})
           </div>
-          {/* Review snippet */}
-          {bestReview && (
-            <div className="mt-2.5 flex items-start gap-2 rounded-lg bg-gray-50 p-2">
-              <Quote className="mt-0.5 h-3 w-3 shrink-0 text-[var(--color-mbl)] rotate-180" />
-              <p className="text-xs text-gray-600 line-clamp-2 italic">
-                {bestReview.comment.length > 70
-                  ? bestReview.comment.slice(0, 70) + "…"
-                  : bestReview.comment}
-              </p>
-            </div>
-          )}
         </div>
       </div>
     </Link>
@@ -192,6 +142,8 @@ export function RestaurantOfMonth() {
   const t = useTranslations("featured");
   const params = useParams();
   const locale = params.locale as string;
+  const [commerces, setCommerces] = useState<Restaurant[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start" },
@@ -201,17 +153,56 @@ export function RestaurantOfMonth() {
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
-  // Show top 8 restaurants (featured first, then by rating)
-  const topRestaurants = [
-    ...mockRestaurants.filter((r) => r.isFeatured),
-    ...mockRestaurants.filter((r) => !r.isFeatured).sort((a, b) => b.avgRating - a.avgRating),
-  ].slice(0, 8);
+  useEffect(() => {
+    async function fetchCommerces() {
+      try {
+        const supabase = createClient();
+        const { data, error } = await supabase
+          .from("restaurants")
+          .select("*")
+          .eq("is_published", true)
+          .order("is_featured", { ascending: false })
+          .order("avg_rating", { ascending: false })
+          .limit(8);
+
+        if (error) {
+          console.error("Supabase error:", error);
+          setCommerces([]);
+        } else {
+          setCommerces((data || []).map((row, i) => mapDbToRestaurant(row as Record<string, unknown>, i)));
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+        setCommerces([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCommerces();
+  }, []);
 
   // Split into pairs for 2-row layout
   const slides: Restaurant[][] = [];
-  for (let i = 0; i < topRestaurants.length; i += 2) {
-    slides.push(topRestaurants.slice(i, i + 2));
+  for (let i = 0; i < commerces.length; i += 2) {
+    slides.push(commerces.slice(i, i + 2));
   }
+
+  if (loading) {
+    return (
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="h-8 w-64 animate-pulse rounded bg-gray-200" />
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="h-72 animate-pulse rounded-xl bg-gray-100" />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (commerces.length === 0) return null;
 
   return (
     <section className="py-16 sm:py-20">
@@ -238,10 +229,10 @@ export function RestaurantOfMonth() {
             {slides.map((pair, idx) => (
               <div key={idx} className="min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
                 <div className="flex flex-col gap-6">
-                  {pair.map((restaurant) => (
-                    <RestaurantSlideCardCompact
-                      key={restaurant.id}
-                      restaurant={restaurant}
+                  {pair.map((commerce) => (
+                    <CommerceSlideCard
+                      key={commerce.id}
+                      restaurant={commerce}
                       locale={locale}
                     />
                   ))}
