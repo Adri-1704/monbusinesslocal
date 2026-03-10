@@ -31,7 +31,7 @@ END $$;
 -- ============================================
 
 CREATE TABLE IF NOT EXISTS cuisine_types (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   slug TEXT UNIQUE NOT NULL,
   name_fr TEXT NOT NULL,
   name_de TEXT NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS cuisine_types (
 CREATE INDEX IF NOT EXISTS idx_cuisine_types_slug ON cuisine_types(slug);
 
 CREATE TABLE IF NOT EXISTS merchants (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   email TEXT UNIQUE NOT NULL,
   name TEXT NOT NULL,
   phone TEXT,
@@ -56,7 +56,7 @@ CREATE INDEX IF NOT EXISTS idx_merchants_email ON merchants(email);
 CREATE INDEX IF NOT EXISTS idx_merchants_stripe_customer ON merchants(stripe_customer_id);
 
 CREATE TABLE IF NOT EXISTS subscriptions (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   merchant_id UUID NOT NULL REFERENCES merchants(id) ON DELETE CASCADE,
   stripe_subscription_id TEXT UNIQUE,
   plan_type subscription_plan NOT NULL,
@@ -72,7 +72,7 @@ CREATE INDEX IF NOT EXISTS idx_subscriptions_stripe ON subscriptions(stripe_subs
 CREATE INDEX IF NOT EXISTS idx_subscriptions_status ON subscriptions(status);
 
 CREATE TABLE IF NOT EXISTS restaurants (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   merchant_id UUID REFERENCES merchants(id) ON DELETE SET NULL,
   slug TEXT UNIQUE NOT NULL,
   name_fr TEXT NOT NULL,
@@ -117,7 +117,7 @@ CREATE INDEX IF NOT EXISTS idx_restaurants_canton_cuisine ON restaurants(canton,
 CREATE INDEX IF NOT EXISTS idx_restaurants_canton_rating ON restaurants(canton, avg_rating DESC) WHERE is_published = true;
 
 CREATE TABLE IF NOT EXISTS restaurant_images (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   restaurant_id UUID NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
   url TEXT NOT NULL,
   alt_text TEXT,
@@ -128,7 +128,7 @@ CREATE INDEX IF NOT EXISTS idx_restaurant_images_restaurant ON restaurant_images
 CREATE INDEX IF NOT EXISTS idx_restaurant_images_position ON restaurant_images(restaurant_id, position);
 
 CREATE TABLE IF NOT EXISTS reviews (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   restaurant_id UUID NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
   author_name TEXT NOT NULL,
   rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5),
@@ -141,7 +141,7 @@ CREATE INDEX IF NOT EXISTS idx_reviews_rating ON reviews(restaurant_id, rating);
 CREATE INDEX IF NOT EXISTS idx_reviews_created ON reviews(restaurant_id, created_at DESC);
 
 CREATE TABLE IF NOT EXISTS menu_items (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   restaurant_id UUID NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
   name_fr TEXT NOT NULL,
   name_de TEXT,
@@ -160,7 +160,7 @@ CREATE INDEX IF NOT EXISTS idx_menu_items_restaurant ON menu_items(restaurant_id
 CREATE INDEX IF NOT EXISTS idx_menu_items_category ON menu_items(restaurant_id, category);
 
 CREATE TABLE IF NOT EXISTS featured_restaurants (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   restaurant_id UUID NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
   month INTEGER NOT NULL CHECK (month >= 1 AND month <= 12),
   year INTEGER NOT NULL,
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS featured_restaurants (
 CREATE INDEX IF NOT EXISTS idx_featured_month_year ON featured_restaurants(year DESC, month DESC);
 
 CREATE TABLE IF NOT EXISTS contact_submissions (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   first_name TEXT NOT NULL,
   last_name TEXT NOT NULL,
   email TEXT NOT NULL,
@@ -182,7 +182,7 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
 );
 
 CREATE TABLE IF NOT EXISTS newsletter_subscribers (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   email TEXT UNIQUE NOT NULL,
   locale TEXT DEFAULT 'fr',
   is_active BOOLEAN DEFAULT true,
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS newsletter_subscribers (
 CREATE INDEX IF NOT EXISTS idx_newsletter_email ON newsletter_subscribers(email);
 
 CREATE TABLE IF NOT EXISTS b2b_contact_requests (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   first_name TEXT NOT NULL,
   last_name TEXT NOT NULL,
   email TEXT NOT NULL,

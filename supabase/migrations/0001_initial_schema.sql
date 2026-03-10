@@ -19,7 +19,7 @@ CREATE TYPE price_range AS ENUM ('1', '2', '3', '4');
 -- TABLE: cuisine_types
 -- ============================================
 CREATE TABLE cuisine_types (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   slug TEXT UNIQUE NOT NULL,
   name_fr TEXT NOT NULL,
   name_de TEXT NOT NULL,
@@ -36,7 +36,7 @@ CREATE INDEX idx_cuisine_types_slug ON cuisine_types(slug);
 -- TABLE: merchants (restaurant owners)
 -- ============================================
 CREATE TABLE merchants (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   email TEXT UNIQUE NOT NULL,
   name TEXT NOT NULL,
   phone TEXT,
@@ -52,7 +52,7 @@ CREATE INDEX idx_merchants_stripe_customer ON merchants(stripe_customer_id);
 -- TABLE: subscriptions
 -- ============================================
 CREATE TABLE subscriptions (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   merchant_id UUID NOT NULL REFERENCES merchants(id) ON DELETE CASCADE,
   stripe_subscription_id TEXT UNIQUE,
   plan_type subscription_plan NOT NULL,
@@ -72,7 +72,7 @@ CREATE INDEX idx_subscriptions_status ON subscriptions(status);
 -- TABLE: restaurants
 -- ============================================
 CREATE TABLE restaurants (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   merchant_id UUID REFERENCES merchants(id) ON DELETE SET NULL,
   slug TEXT UNIQUE NOT NULL,
 
@@ -141,7 +141,7 @@ CREATE INDEX idx_restaurants_canton_rating ON restaurants(canton, avg_rating DES
 -- TABLE: restaurant_images
 -- ============================================
 CREATE TABLE restaurant_images (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   restaurant_id UUID NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
   url TEXT NOT NULL,
   alt_text TEXT,
@@ -156,7 +156,7 @@ CREATE INDEX idx_restaurant_images_position ON restaurant_images(restaurant_id, 
 -- TABLE: reviews
 -- ============================================
 CREATE TABLE reviews (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   restaurant_id UUID NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
   author_name TEXT NOT NULL,
   rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5),
@@ -173,7 +173,7 @@ CREATE INDEX idx_reviews_created ON reviews(restaurant_id, created_at DESC);
 -- TABLE: menu_items
 -- ============================================
 CREATE TABLE menu_items (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   restaurant_id UUID NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
 
   -- Trilingual content
@@ -200,7 +200,7 @@ CREATE INDEX idx_menu_items_category ON menu_items(restaurant_id, category);
 -- TABLE: featured_restaurants (restaurant of the month)
 -- ============================================
 CREATE TABLE featured_restaurants (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   restaurant_id UUID NOT NULL REFERENCES restaurants(id) ON DELETE CASCADE,
   month INTEGER NOT NULL CHECK (month >= 1 AND month <= 12),
   year INTEGER NOT NULL,
@@ -216,7 +216,7 @@ CREATE INDEX idx_featured_month_year ON featured_restaurants(year DESC, month DE
 -- TABLE: contact_submissions
 -- ============================================
 CREATE TABLE contact_submissions (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   first_name TEXT NOT NULL,
   last_name TEXT NOT NULL,
   email TEXT NOT NULL,
@@ -230,7 +230,7 @@ CREATE TABLE contact_submissions (
 -- TABLE: newsletter_subscribers
 -- ============================================
 CREATE TABLE newsletter_subscribers (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   email TEXT UNIQUE NOT NULL,
   locale TEXT DEFAULT 'fr',
   is_active BOOLEAN DEFAULT true,
