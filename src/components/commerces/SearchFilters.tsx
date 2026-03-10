@@ -6,28 +6,45 @@ import { useCallback } from "react";
 import { X, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { cantons } from "@/data/cantons";
-import { cuisineCategories } from "@/data/mock-categories";
-import { featuresOptions } from "@/data/mock-restaurants";
-import { getLocalizedLabel, getLocalizedName, getLocalizedLabelAlt } from "@/lib/locale-helpers";
+
+const categories = [
+  { value: "restaurant", label: "Restaurant" },
+  { value: "cafe", label: "Café" },
+  { value: "boulangerie", label: "Boulangerie" },
+  { value: "epicerie", label: "Épicerie" },
+  { value: "mode", label: "Mode" },
+  { value: "beaute", label: "Beauté" },
+  { value: "bien-etre", label: "Bien-être" },
+  { value: "sport", label: "Sport" },
+  { value: "librairie", label: "Librairie" },
+  { value: "fleuriste", label: "Fleuriste" },
+  { value: "artisanat", label: "Artisanat" },
+  { value: "alimentation", label: "Alimentation" },
+];
+
+const featureOptions = [
+  { value: "wifi", label: "WiFi" },
+  { value: "terrasse", label: "Terrasse" },
+  { value: "accessible-pmr", label: "Accessible PMR" },
+  { value: "livraison", label: "Livraison" },
+  { value: "a-emporter", label: "À emporter" },
+  { value: "parking", label: "Parking" },
+  { value: "produits-locaux", label: "Produits locaux" },
+  { value: "eco-responsable", label: "Éco-responsable" },
+  { value: "commande-en-ligne", label: "Commande en ligne" },
+];
 
 export function SearchFilters() {
   const t = useTranslations("search");
-  const tHero = useTranslations("hero");
   const params = useParams();
   const locale = params.locale as string;
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const currentCanton = searchParams.get("canton") || "";
   const currentCuisine = searchParams.get("cuisine") || "";
   const currentPrice = searchParams.get("price") || "";
   const currentRating = searchParams.get("rating") || "";
   const currentFeatures = searchParams.get("features")?.split(",").filter(Boolean) || [];
-
-  const getCantonLabelLocal = (c: { label: string; labelDe: string; labelEn: string; labelPt?: string; labelEs?: string }) => {
-    return getLocalizedLabel(c, locale);
-  };
 
   const updateFilter = useCallback(
     (key: string, value: string) => {
@@ -37,7 +54,7 @@ export function SearchFilters() {
       } else {
         newParams.delete(key);
       }
-      router.push(`/${locale}/restaurants?${newParams.toString()}`);
+      router.push(`/${locale}/commerces?${newParams.toString()}`);
     },
     [searchParams, router, locale]
   );
@@ -53,7 +70,7 @@ export function SearchFilters() {
       } else {
         newParams.delete("features");
       }
-      router.push(`/${locale}/restaurants?${newParams.toString()}`);
+      router.push(`/${locale}/commerces?${newParams.toString()}`);
     },
     [currentFeatures, searchParams, router, locale]
   );
@@ -62,7 +79,7 @@ export function SearchFilters() {
     router.push(`/${locale}/commerces`);
   };
 
-  const hasActiveFilters = currentCanton || currentCuisine || currentPrice || currentRating || currentFeatures.length > 0;
+  const hasActiveFilters = currentCuisine || currentPrice || currentRating || currentFeatures.length > 0;
 
   return (
     <div className="space-y-6">
@@ -76,39 +93,20 @@ export function SearchFilters() {
         )}
       </div>
 
-      {/* Canton Filter */}
+      {/* Category Filter */}
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">
-          {tHero("canton")}
-        </label>
-        <select
-          value={currentCanton}
-          onChange={(e) => updateFilter("canton", e.target.value)}
-          className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-[var(--color-mbl)] focus:ring-2 focus:ring-[var(--color-mbl)]/20"
-        >
-          <option value="">{tHero("allCantons")}</option>
-          {cantons.map((c) => (
-            <option key={c.value} value={c.value}>
-              {getCantonLabelLocal(c)}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Cuisine Filter */}
-      <div>
-        <label className="mb-2 block text-sm font-medium text-gray-700">
-          {tHero("cuisineType")}
+          Catégorie
         </label>
         <select
           value={currentCuisine}
           onChange={(e) => updateFilter("cuisine", e.target.value)}
           className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-[var(--color-mbl)] focus:ring-2 focus:ring-[var(--color-mbl)]/20"
         >
-          <option value="">{tHero("allCuisines")}</option>
-          {cuisineCategories.map((c) => (
-            <option key={c.slug} value={c.slug}>
-              {c.icon} {getLocalizedName(c, locale)}
+          <option value="">Toutes les catégories</option>
+          {categories.map((c) => (
+            <option key={c.value} value={c.value}>
+              {c.label}
             </option>
           ))}
         </select>
@@ -173,8 +171,7 @@ export function SearchFilters() {
           {t("features")}
         </label>
         <div className="flex flex-wrap gap-2">
-          {featuresOptions.map((feature) => {
-            const label = getLocalizedLabelAlt(feature, locale);
+          {featureOptions.map((feature) => {
             const isActive = currentFeatures.includes(feature.value);
             return (
               <Badge
@@ -187,7 +184,7 @@ export function SearchFilters() {
                 }`}
                 onClick={() => toggleFeature(feature.value)}
               >
-                {label}
+                {feature.label}
               </Badge>
             );
           })}
