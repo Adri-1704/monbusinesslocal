@@ -8,25 +8,25 @@ const advantages = [
   {
     key: "visibility",
     icon: Eye,
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
     color: "bg-blue-50 text-blue-600",
   },
   {
     key: "reviews",
     icon: MessageSquare,
-    image: "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=600&h=400&fit=crop",
     color: "bg-orange-50 text-orange-600",
   },
   {
     key: "marketing",
     icon: Megaphone,
-    image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&h=400&fit=crop",
     color: "bg-green-50 text-green-600",
   },
   {
     key: "simplicity",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop",
     color: "bg-purple-50 text-purple-600",
   },
 ];

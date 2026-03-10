@@ -19,7 +19,7 @@ export function B2BHero() {
         className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&h=1080&fit=crop')",
+            "url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1920&h=1080&fit=crop')",
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-gray-900/70" />
