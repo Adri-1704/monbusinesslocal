@@ -121,7 +121,7 @@ export default async function LocaleLayout({
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: `${baseUrl}/${locale}/restaurants?q={search_term_string}`,
+        urlTemplate: `${baseUrl}/${locale}/commerces?q={search_term_string}`,
       },
       "query-input": "required name=search_term_string",
     },

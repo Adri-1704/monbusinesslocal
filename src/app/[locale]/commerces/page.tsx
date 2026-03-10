@@ -181,7 +181,7 @@ function RestaurantsContent() {
             onChange={(e) => {
               const newParams = new URLSearchParams(searchParams.toString());
               newParams.set("sort", e.target.value);
-              router.push(`/${locale}/restaurants?${newParams.toString()}`);
+              router.push(`/${locale}/commerces?${newParams.toString()}`);
             }}
             className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none"
           >

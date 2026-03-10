@@ -8,7 +8,7 @@ const advantages = [
   {
     key: "video",
     icon: Video,
-    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
     color: "bg-red-50 text-red-600",
   },
   {

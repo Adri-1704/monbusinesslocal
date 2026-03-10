@@ -305,7 +305,7 @@ export function RestaurantDetailClient({ restaurant, reviews, locale, featuresOp
         </Link>
         <ChevronRight className="h-3.5 w-3.5" />
         <Link
-          href={`/${locale}/restaurants?canton=${restaurant.canton}`}
+          href={`/${locale}/commerces?canton=${restaurant.canton}`}
           className="hover:text-[var(--color-mbl)] transition-colors"
         >
           {restaurant.canton.charAt(0).toUpperCase() + restaurant.canton.slice(1)}
