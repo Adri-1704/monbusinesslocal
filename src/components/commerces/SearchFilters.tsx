@@ -117,7 +117,7 @@ export function SearchFilters() {
         <label className="mb-2 block text-sm font-medium text-gray-700">
           {t("priceRange")}
         </label>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {[1, 2, 3, 4].map((price) => (
             <Button
               key={price}
@@ -143,7 +143,7 @@ export function SearchFilters() {
         <label className="mb-2 block text-sm font-medium text-gray-700">
           {t("minRating")}
         </label>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {[3, 3.5, 4, 4.5].map((rating) => (
             <Button
               key={rating}
@@ -152,11 +152,11 @@ export function SearchFilters() {
               onClick={() =>
                 updateFilter("rating", currentRating === String(rating) ? "" : String(rating))
               }
-              className={
+              className={`shrink-0 ${
                 currentRating === String(rating)
                   ? "bg-[var(--color-mbl)] hover:bg-[var(--color-mbl-dark)]"
                   : ""
-              }
+              }`}
             >
               <Star className="mr-1 h-3 w-3 fill-current" />
               {rating}+
