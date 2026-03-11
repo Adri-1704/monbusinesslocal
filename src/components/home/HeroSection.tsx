@@ -55,7 +55,7 @@ export function HeroSection() {
             <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl">
               {t("title")}
             </h1>
-            <p className="mt-3 max-w-xl text-lg font-medium text-[var(--color-mbl)] sm:text-xl">
+            <p className="mt-3 max-w-xl text-lg font-medium text-white sm:text-xl">
               {t("slogan")}
             </p>
             <p className="mt-3 max-w-xl text-base text-gray-300 sm:text-lg">
