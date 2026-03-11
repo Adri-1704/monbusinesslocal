@@ -15,21 +15,21 @@
   "hero": {
     "title": "Lausanne, vos commerces locaux",
     "slogan": "Achetez local, soutenez vos commerçants — tout le monde y gagne.",
-    "subtitle": "Découvrez les meilleures adresses de votre quartier : boutiques, restaurants, artisans et services",
-    "searchPlaceholder": "Nom, catégorie...",
+    "subtitle": "Trouvez le boulanger, le fleuriste ou l'artisan qu'il vous faut — à deux pas de chez vous.",
+    "searchPlaceholder": "Ex : boulangerie, coiffeur, fleuriste...",
     "canton": "Quartier",
     "allCantons": "Tous les quartiers",
     "cuisineType": "Catégorie",
     "allCuisines": "Toutes les catégories",
     "searchButton": "Rechercher",
-    "swissBadge": "100% Local",
-    "popularSearches": "Recherches populaires",
-    "statsCounter": "Lausanne, 500+ commerces"
+    "swissBadge": "100% Lausanne",
+    "popularSearches": "Les plus recherchés",
+    "statsCounter": "Déjà 50+ commerces référencés à Lausanne"
   },
   "featured": {
-    "title": "Commerces du mois",
-    "subtitle": "Notre sélection des meilleures adresses ce mois-ci",
-    "badge": "Commerce du mois"
+    "title": "Nos coups de coeur",
+    "subtitle": "Les commerces lausannois à découvrir absolument ce mois-ci",
+    "badge": "Coup de coeur"
   },
   "categories": {
     "title": "Explorez par catégorie",
@@ -37,34 +37,38 @@
     "viewAll": "Voir tout"
   },
   "howItWorks": {
-    "title": "Comment ça marche ?",
-    "subtitle": "Trouvez votre commerce idéal en 3 étapes simples",
-    "step1Title": "Recherchez",
-    "step1Desc": "Utilisez nos filtres pour trouver le commerce parfait selon vos besoins",
-    "step2Title": "Découvrez",
-    "step2Desc": "Consultez les fiches détaillées : photos, avis, horaires et localisation",
-    "step3Title": "Profitez",
-    "step3Desc": "Rendez-vous sur place et soutenez les commerces de votre ville"
+    "title": "Simple comme bonjour",
+    "subtitle": "Trouvez votre prochain commerce préféré en 3 clics",
+    "step1Title": "Cherchez",
+    "step1Desc": "Tapez un nom, une catégorie ou un quartier — notre moteur fait le reste",
+    "step2Title": "Explorez",
+    "step2Desc": "Vidéos, photos, avis vérifiés, horaires — tout est là pour bien choisir",
+    "step3Title": "Soutenez",
+    "step3Desc": "Rendez visite, laissez un avis et faites vivre les commerces de Lausanne",
+    "cta": "Découvrir les commerces"
   },
   "testimonials": {
-    "title": "Ce que disent nos utilisateurs",
-    "subtitle": "Des habitants de Lausanne nous font confiance"
+    "title": "Ils ont trouvé leur bonheur",
+    "subtitle": "Des Lausannois partagent leurs découvertes"
   },
   "newsletter": {
-    "title": "Restez informé",
-    "subtitle": "Recevez nos meilleures recommandations et les nouveaux commerces chaque semaine",
+    "title": "Le meilleur de Lausanne dans votre boîte mail",
+    "subtitle": "Chaque semaine, recevez nos pépites : nouveaux commerces, offres exclusives et coups de coeur.",
     "placeholder": "Votre adresse email",
-    "button": "S'inscrire",
-    "privacy": "Nous respectons votre vie privée. Désabonnez-vous à tout moment.",
-    "success": "Merci ! Vous êtes inscrit à notre newsletter.",
-    "error": "Une erreur est survenue. Veuillez réessayer."
+    "button": "Je m'inscris",
+    "privacy": "Gratuit et sans spam. Désabonnement en 1 clic.",
+    "success": "Bienvenue ! Votre première sélection arrive bientôt.",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "benefit1": "Nos pépites de la semaine",
+    "benefit2": "Offres exclusives des commerçants",
+    "benefit3": "Alertes nouveaux commerces"
   },
   "stats": {
-    "restaurants": "Commerces",
-    "cantons": "Quartiers couverts",
+    "restaurants": "Commerces partenaires",
+    "cantons": "Catégories",
     "reviews": "Avis vérifiés",
-    "cuisines": "Catégories",
-    "swissQuality": "Qualité locale"
+    "cuisines": "100% local",
+    "swissQuality": "Fait à Lausanne"
   },
   "search": {
     "title": "Trouver un commerce",
@@ -179,17 +183,17 @@
     "swissMade": "Fait à Lausanne",
     "secureData": "Données sécurisées en Suisse",
     "ctaTitle": "Vous êtes commerçant à Lausanne ?",
-    "ctaSubtitle": "Inscrivez votre commerce et attirez de nouveaux clients"
+    "ctaSubtitle": "Vidéo pro + logo certifié + fiche complète dès CHF 24.90/mois"
   },
   "b2b": {
     "hero": {
-      "title": "La plateforme des commerces locaux de Lausanne",
-      "subtitle": "Rejoignez l'annuaire de référence des commerces lausannois et gagnez en visibilité auprès des habitants.",
-      "benefit1": "1 vidéo de présentation de votre commerce diffusée sur nos réseaux",
-      "benefit2": "1 logo certifié Monbusinesslocal à afficher sur votre vitrine",
-      "benefit3": "Fiche commerce complète avec photos, produits et avis",
-      "socialProof": "Rejoignez les commerçants qui nous font confiance",
-      "cta": "Demander à être contacté",
+      "title": "Votre commerce mérite d'être vu par tout Lausanne",
+      "subtitle": "On filme votre commerce, on le diffuse sur nos réseaux, on vous crée un logo certifié — et des milliers de Lausannois découvrent votre adresse. Dès CHF 24.90/mois.",
+      "benefit1": "1 vidéo pro de votre commerce diffusée sur Instagram, TikTok et Facebook",
+      "benefit2": "1 logo certifié Monbusinesslocal à coller sur votre vitrine",
+      "benefit3": "Votre fiche complète visible par des milliers d'habitants chaque mois",
+      "socialProof": "Déjà 50+ commerçants lausannois inscrits",
+      "cta": "Réserver ma place",
       "ctaSecondary": "Voir les tarifs"
     },
     "swissAdvantage": {
@@ -220,49 +224,49 @@
       "cuisines": "Catégories"
     },
     "advantages": {
-      "title": "Pourquoi rejoindre Monbusinesslocal ?",
-      "subtitle": "Tout ce dont vous avez besoin pour développer votre clientèle locale",
+      "title": "Ce que vous gagnez en nous rejoignant",
+      "subtitle": "Chaque euro investi vous rapporte des clients. Voici comment.",
       "video": {
-        "title": "1 vidéo de présentation offerte",
-        "desc": "Notre équipe réalise une vidéo professionnelle de votre commerce, diffusée sur tous nos réseaux sociaux (Instagram, TikTok, Facebook, YouTube).",
-        "point1": "Tournage professionnel dans votre commerce",
-        "point2": "Diffusion sur tous les réseaux sociaux du site",
-        "point3": "Contenu réutilisable pour votre propre communication"
+        "title": "Une vidéo pro qui travaille pour vous 24h/24",
+        "desc": "On vient chez vous, on filme votre savoir-faire, et on diffuse la vidéo à des milliers de personnes sur Instagram, TikTok et Facebook. Vous n'avez rien à faire.",
+        "point1": "Tournage gratuit dans votre commerce par notre équipe",
+        "point2": "Diffusion sur 4 réseaux sociaux = des milliers de vues",
+        "point3": "Vous gardez la vidéo pour vos propres réseaux"
       },
       "certifiedLogo": {
-        "title": "Logo certifié pour votre vitrine",
-        "desc": "Recevez un logo certifié Monbusinesslocal à afficher sur la vitrine de votre commerce. Un gage de confiance pour vos clients.",
-        "point1": "Sticker et logo haute qualité prêt à poser",
-        "point2": "Signal de confiance pour les passants et clients",
-        "point3": "Distinction visible parmi les commerces du quartier"
+        "title": "Un logo certifié qui attire les passants",
+        "desc": "Le sticker Monbusinesslocal sur votre vitrine, c'est comme un label de confiance. Les passants savent que vous êtes un commerce recommandé.",
+        "point1": "Sticker premium prêt à coller sur votre vitrine",
+        "point2": "Les clients font confiance aux commerces certifiés",
+        "point3": "Vous vous démarquez des autres commerces du quartier"
       },
       "visibility": {
-        "title": "Visibilité maximale",
-        "desc": "Votre commerce apparaît dans les recherches de milliers d'habitants de Lausanne.",
-        "point1": "Fiche commerce détaillée et professionnelle",
-        "point2": "Référencement SEO local optimisé sur Google",
-        "point3": "Présence sur la plateforme n°1 à Lausanne"
+        "title": "Des clients qui vous trouvent sans effort",
+        "desc": "Quand un Lausannois cherche un commerce comme le vôtre, il tombe sur votre fiche. Plus besoin de courir après les clients — ils viennent à vous.",
+        "point1": "Votre fiche apparaît en haut des recherches locales",
+        "point2": "Référencement Google optimisé pour votre quartier",
+        "point3": "Visible par des milliers d'habitants chaque mois"
       },
       "reviews": {
-        "title": "Gestion des avis clients",
-        "desc": "Recevez des avis vérifiés de vos clients et améliorez votre réputation en ligne.",
-        "point1": "Avis vérifiés et modérés par notre équipe",
-        "point2": "Note moyenne affichée sur votre fiche",
-        "point3": "Répondez aux avis pour fidéliser vos clients"
+        "title": "Des avis qui boostent votre réputation",
+        "desc": "Les avis vérifiés rassurent les nouveaux clients. Plus vous avez d'avis positifs, plus les gens vous font confiance et poussent votre porte.",
+        "point1": "Avis vérifiés = crédibilité maximum",
+        "point2": "Votre note s'affiche directement sur votre fiche",
+        "point3": "Répondez aux avis et fidélisez vos clients"
       },
       "marketing": {
-        "title": "Outils marketing puissants",
-        "desc": "Profitez d'outils exclusifs pour mettre en avant votre établissement.",
-        "point1": "Badge vérifié pour renforcer la confiance",
-        "point2": "Possibilité d'être sélectionné Commerce du mois",
-        "point3": "Mise en avant dans les résultats de recherche"
+        "title": "Mis en avant sans lever le petit doigt",
+        "desc": "Badge vérifié, sélection Commerce du mois, mise en avant dans les résultats — on s'occupe de votre marketing local.",
+        "point1": "Badge vérifié = +50% de clics sur votre fiche",
+        "point2": "Chance d'être élu Commerce du mois (visibilité x10)",
+        "point3": "Affichage prioritaire dans les résultats de recherche"
       },
       "simplicity": {
-        "title": "Simple et efficace",
-        "desc": "Une interface intuitive pour vous concentrer sur l'essentiel : vos clients.",
-        "point1": "Tableau de bord simple et intuitif",
-        "point2": "Support dédié et réactif",
-        "point3": "Statistiques détaillées de vos visites"
+        "title": "Zéro prise de tête, 100% résultat",
+        "desc": "Pas besoin d'être un geek. Votre tableau de bord est simple, et notre équipe est là si vous avez la moindre question.",
+        "point1": "Interface simple — modifiez votre fiche en 2 minutes",
+        "point2": "Support réactif par email et téléphone",
+        "point3": "Statistiques claires : combien de gens vous ont vu et contacté"
       }
     },
     "howItWorks": {
@@ -286,64 +290,64 @@
       }
     },
     "testimonials": {
-      "title": "Ils nous font confiance",
-      "subtitle": "Des commerçants lausannois partagent leur expérience",
+      "title": "Ils l'ont fait — et ils ne reviendraient pas en arrière",
+      "subtitle": "Des commerçants lausannois racontent leur expérience",
       "t1": {
-        "name": "Marco Bernasconi",
+        "name": "Marco B.",
         "restaurant": "Boulangerie du Flon",
         "city": "Lausanne",
-        "quote": "Depuis que nous sommes sur Monbusinesslocal, notre fréquentation a augmenté de 30%. La plateforme est vraiment efficace."
+        "quote": "La vidéo qu'ils ont tournée dans ma boulangerie a fait 3 000 vues sur Instagram en une semaine. Depuis, j'ai des clients qui viennent en disant « je vous ai vu sur les réseaux ». En 15 ans, ça ne m'était jamais arrivé."
       },
       "t2": {
-        "name": "Sophie Müller",
+        "name": "Sophie M.",
         "restaurant": "Atelier Créatif",
         "city": "Lausanne",
-        "quote": "L'interface est très simple à utiliser et le support est excellent. Je recommande à tous les commerçants."
+        "quote": "Je n'y connaissais rien en marketing digital. Ils ont tout fait pour moi : la fiche, les photos, la vidéo. En 2 mois, j'ai rempli mes cours de poterie du samedi."
       },
       "t3": {
-        "name": "Antoine Girard",
-        "restaurant": "Le Comptoir du Lac",
+        "name": "Antoine G.",
+        "restaurant": "Café de Grancy",
         "city": "Lausanne",
-        "quote": "Les avis vérifiés nous ont permis de renforcer notre réputation. Nos clients mentionnent souvent qu'ils nous ont trouvés sur la plateforme."
+        "quote": "Le sticker certifié sur ma vitrine, les gens le remarquent. Plusieurs clients m'ont dit qu'ils sont entrés parce qu'ils ont vu le logo. Pour le prix, c'est imbattable."
       }
     },
     "pricing": {
-      "title": "Des tarifs adaptés à vos besoins",
-      "subtitle": "Choisissez la formule qui vous convient et commencez à attirer de nouveaux clients",
+      "title": "Investissez moins qu'un café par jour dans votre visibilité",
+      "subtitle": "À partir de CHF 24.90/mois — vidéo, logo certifié et fiche complète inclus",
       "earlyBirdTab": "Offre de lancement",
       "earlyBirdBadge": "-40%",
-      "earlyBirdNote": "Tarifs exclusifs réservés aux 100 premiers commerces inscrits",
+      "earlyBirdNote": "Places limitées — ces tarifs ne reviendront plus une fois les 100 places prises",
       "standardTab": "Tarifs standards",
       "perMonthLabel": "/mois",
       "totalLabel": "soit CHF {price} au total",
-      "toteBags": "+ {count} tote-bags personnalisés offerts",
-      "bestValue": "Meilleur rapport qualité-prix",
-      "lifetimeTitle": "Offre à vie",
-      "lifetimeExclusive": "Exclusif",
-      "lifetimeDesc": "Un paiement unique pour un accès illimité à toutes les fonctionnalités, à vie.",
-      "oneTimePayment": "paiement unique",
-      "cta": "Voir les détails et souscrire",
-      "note": "Sans engagement pour le plan mensuel. Annulation possible à tout moment.",
-      "guarantee": "Satisfait ou remboursé 30 jours",
-      "spotsLeft": "Il reste {count} places en offre Early Bird",
-      "includedTitle": "Inclus dans tous les abonnements",
+      "toteBags": "+ {count} tote-bags offerts pour vos clients",
+      "bestValue": "Le plus choisi",
+      "savingsLabel": "Vous économisez CHF {amount}",
+      "lifetimeTitle": "Offre à vie — Plus jamais un centime",
+      "lifetimeExclusive": "Places limitées",
+      "lifetimeDesc": "Un seul paiement, accès à vie à tout. Vidéo, logo, fiche, mises à jour futures — tout est inclus pour toujours.",
+      "oneTimePayment": "paiement unique — à vie",
+      "cta": "Réserver ma place maintenant",
+      "note": "Plan mensuel sans engagement. Annulation en 1 clic.",
+      "guarantee": "Satisfait ou remboursé 30 jours — sans condition",
+      "spotsLeft": "Plus que {count} places au tarif Early Bird",
+      "includedTitle": "Tout ça est inclus, quel que soit votre plan",
       "included": {
-        "videoPresentation": "1 vidéo de présentation diffusée sur nos réseaux",
-        "certifiedLogo": "1 logo certifié à afficher sur votre vitrine",
-        "presence": "Présence de votre établissement",
-        "photoHighlight": "Mise en avant photos",
-        "menuDisplay": "Affichage des produits & services",
-        "addressContact": "Adresse, contact et plan",
-        "openingHours": "Horaires d'ouverture",
-        "videoPresentation": "Présentation vidéo"
+        "videoPresentation": "1 vidéo pro tournée chez vous et diffusée sur nos réseaux",
+        "certifiedLogo": "1 logo certifié premium à coller sur votre vitrine",
+        "presence": "Votre fiche commerce visible par des milliers de Lausannois",
+        "photoHighlight": "Vos plus belles photos mises en avant",
+        "menuDisplay": "Vos produits et services affichés en détail",
+        "addressContact": "Adresse, téléphone, email et plan interactif",
+        "openingHours": "Horaires d'ouverture toujours à jour"
       },
       "features": {
         "listing": "Fiche complète",
         "photos": "Photos & produits",
-        "stats": "Statistiques",
+        "stats": "Statistiques de visite",
         "badge": "Badge vérifié",
-        "priority": "Affichage prioritaire",
-        "support": "Support dédié"
+        "priority": "En haut des résultats",
+        "support": "Support prioritaire"
       }
     },
     "contact": {
@@ -371,30 +375,38 @@
       "trustCallback": "Rappel sous 24h"
     },
     "faq": {
-      "title": "Questions fréquentes",
+      "title": "Vos questions, nos réponses",
       "q1": {
-        "question": "Combien coûte l'inscription sur Monbusinesslocal ?",
-        "answer": "Nous proposons 3 formules (mensuelle, semestrielle, annuelle) avec un tarif de lancement réservé aux 100 premiers inscrits à partir de CHF 24.90/mois. Une offre à vie à CHF 1 495 est également disponible."
+        "question": "Est-ce que ça vaut vraiment le coup pour un petit commerce ?",
+        "answer": "C'est justement conçu pour les petits commerces. Pour moins qu'un café par jour (dès CHF 24.90/mois), vous obtenez une vidéo pro, un logo certifié et une fiche visible par des milliers de Lausannois. Un seul nouveau client par mois et c'est déjà rentabilisé."
       },
       "q2": {
-        "question": "Suis-je engagé sur une durée minimum ?",
-        "answer": "Non, le plan mensuel est sans engagement. Vous pouvez annuler à tout moment."
+        "question": "Combien de temps avant d'être visible ?",
+        "answer": "Votre fiche est en ligne sous 48h. La vidéo est tournée dans les 2 semaines suivant votre inscription et diffusée immédiatement sur nos réseaux. Les premiers résultats (vues, contacts) arrivent dès la première semaine."
       },
       "q3": {
-        "question": "Comment ma fiche commerce est-elle mise en avant ?",
-        "answer": "Votre commerce apparaît dans les résultats de recherche avec une fiche complète incluant photos, produits, horaires et avis. Selon votre plan, vous bénéficiez d'un affichage prioritaire et d'un badge vérifié."
+        "question": "Suis-je engagé sur une durée ?",
+        "answer": "Le plan mensuel est sans engagement — vous pouvez annuler en 1 clic à tout moment. Et tous les plans sont couverts par notre garantie satisfait ou remboursé 30 jours."
       },
       "q4": {
-        "question": "Le site est-il disponible en plusieurs langues ?",
-        "answer": "Oui, Monbusinesslocal est disponible en français, allemand, anglais, portugais et espagnol."
+        "question": "Qu'est-ce qui est inclus dans la vidéo ?",
+        "answer": "Notre équipe vient chez vous, filme votre commerce, votre savoir-faire et votre ambiance. La vidéo (30-60 secondes) est montée professionnellement et diffusée sur Instagram, TikTok, Facebook et YouTube. Vous pouvez aussi l'utiliser sur vos propres réseaux."
       },
       "q5": {
-        "question": "Quel type de support proposez-vous ?",
-        "answer": "Tous les plans incluent un support par email. Les plans Annuel et À vie bénéficient d'un support dédié et prioritaire."
+        "question": "C'est quoi le logo certifié ?",
+        "answer": "C'est un sticker premium avec le logo Monbusinesslocal que vous collez sur votre vitrine. Il signale aux passants que votre commerce est recommandé et vérifié. C'est un vrai signal de confiance — plusieurs commerçants nous disent que des clients entrent grâce à ce logo."
       },
       "q6": {
-        "question": "Puis-je modifier ma fiche à tout moment ?",
-        "answer": "Absolument. Vous pouvez mettre à jour vos photos, produits, horaires et toutes vos informations à tout moment depuis votre tableau de bord."
+        "question": "Je n'y connais rien en digital, c'est compliqué ?",
+        "answer": "Pas du tout. On s'occupe de tout : la vidéo, la fiche, les photos. Votre tableau de bord est ultra simple et notre équipe est disponible par email et téléphone si vous avez la moindre question."
+      },
+      "q7": {
+        "question": "Pourquoi les tarifs Early Bird sont-ils limités ?",
+        "answer": "On veut accompagner chaque commerce personnellement (vidéo, support dédié). Pour garantir cette qualité, on limite les 100 premières places à un tarif préférentiel de -40%. Une fois ces places prises, on passe aux tarifs standards."
+      },
+      "q8": {
+        "question": "Le site est-il disponible en plusieurs langues ?",
+        "answer": "Oui, votre fiche est automatiquement disponible en français, allemand, anglais, portugais et espagnol. Idéal pour toucher aussi les touristes et les expatriés de Lausanne."
       }
     }
   },

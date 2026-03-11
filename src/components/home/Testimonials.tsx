@@ -2,7 +2,33 @@
 
 import { useTranslations } from "next-intl";
 import { Star, Quote } from "lucide-react";
-import { testimonials } from "@/data/mock-restaurants";
+
+const localTestimonials = [
+  {
+    name: "Marie L.",
+    role: "Habitante du Flon",
+    text: "J'ai découvert la Boulangerie du Flon grâce à Monbusinesslocal. Depuis, j'y vais tous les samedis matin. Leur pain au levain est incroyable !",
+    rating: 5,
+  },
+  {
+    name: "Thomas R.",
+    role: "Expatrié à Lausanne",
+    text: "En tant qu'expatrié, c'est dur de trouver les bonnes adresses. Cette plateforme m'a fait découvrir des pépites que même mes collègues suisses ne connaissaient pas.",
+    rating: 5,
+  },
+  {
+    name: "Claire D.",
+    role: "Commerçante — Fleuriste",
+    text: "Depuis mon inscription, je vois régulièrement des clients qui me disent « je vous ai trouvée sur Monbusinesslocal ». La vidéo sur Instagram a beaucoup aidé.",
+    rating: 5,
+  },
+  {
+    name: "Nicolas P.",
+    role: "Habitant de Grancy",
+    text: "J'adore l'idée de soutenir le commerce local. Grâce au site, j'ai arrêté de commander en ligne pour les cadeaux — je trouve tout dans mon quartier.",
+    rating: 4,
+  },
+];
 
 export function Testimonials() {
   const t = useTranslations("testimonials");
@@ -18,10 +44,10 @@ export function Testimonials() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {testimonials.map((testimonial, index) => (
+          {localTestimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="rounded-xl border bg-white p-6 shadow-sm"
+              className="rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
             >
               <Quote className="h-8 w-8 text-[var(--color-mbl)]/20" />
               <p className="mt-3 text-sm text-gray-600 leading-relaxed">

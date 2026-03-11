@@ -148,31 +148,32 @@ export function B2BPricing() {
         </div>
 
         {activeTab === "earlyBird" && (
-          <div className="mt-4 text-center">
-            <p className="text-sm text-[var(--color-mbl)] font-medium">
-              <Star className="mr-1 inline h-4 w-4" />
-              {t("earlyBirdNote")}
-            </p>
-            {/* Progress bar for early bird spots */}
-            <div className="mx-auto mt-3 max-w-sm">
-              <div className="h-2 overflow-hidden rounded-full bg-gray-200">
-                <div className="h-full rounded-full bg-[var(--color-mbl)] transition-all" style={{ width: "62%" }} />
+          <div className="mt-6 text-center">
+            <div className="mx-auto max-w-md rounded-xl border border-orange-200 bg-orange-50 p-4">
+              <p className="text-sm text-orange-800 font-semibold">
+                <Zap className="mr-1 inline h-4 w-4 text-orange-500" />
+                {t("earlyBirdNote")}
+              </p>
+              <div className="mt-3">
+                <div className="h-3 overflow-hidden rounded-full bg-orange-100">
+                  <div className="h-full rounded-full bg-gradient-to-r from-orange-400 to-red-500 transition-all animate-pulse" style={{ width: "62%" }} />
+                </div>
+                <p className="mt-2 text-sm font-bold text-orange-700">{t("spotsLeft", { count: 38 })}</p>
               </div>
-              <p className="mt-1.5 text-xs text-gray-500">{t("spotsLeft", { count: 38 })}</p>
             </div>
           </div>
         )}
 
         {/* Included in all plans */}
-        <div className="mt-10 rounded-2xl border border-[var(--color-alpine-green)]/20 bg-[var(--color-warm-cream)] p-6 sm:p-8">
-          <h3 className="text-center text-sm font-bold uppercase tracking-wider text-[var(--color-alpine-green)]">
+        <div className="mt-10 rounded-2xl border border-[var(--color-mbl)]/20 bg-blue-50 p-6 sm:p-8">
+          <h3 className="text-center text-sm font-bold uppercase tracking-wider text-[var(--color-mbl)]">
             {t("includedTitle")}
           </h3>
-          <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
             {includedFeatures.map(({ key, icon: Icon }) => (
               <div key={key} className="flex flex-col items-center gap-2 text-center">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-alpine-green)]/10">
-                  <Icon className="h-5 w-5 text-[var(--color-alpine-green)]" />
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-mbl)]/10">
+                  <Icon className="h-5 w-5 text-[var(--color-mbl)]" />
                 </div>
                 <span className="text-sm font-medium text-gray-800">
                   {t(`included.${key}`)}
@@ -283,14 +284,21 @@ export function B2BPricing() {
           <Button
             asChild
             size="lg"
-            className="bg-[var(--color-mbl)] px-8 text-base font-semibold hover:bg-[var(--color-mbl-dark)]"
+            className="bg-[var(--color-mbl)] px-10 py-6 text-base font-semibold hover:bg-[var(--color-mbl-dark)] shadow-lg shadow-[var(--color-mbl)]/25 transition-all hover:shadow-xl hover:-translate-y-0.5"
           >
             <Link href={`/${locale}/partenaire-inscription`}>
               {t("cta")}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-          <p className="mt-3 text-sm text-gray-500">{t("note")}</p>
+          <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-4">
+            <span className="inline-flex items-center gap-1.5 text-sm text-green-600 font-medium">
+              <ShieldCheck className="h-4 w-4" />
+              {t("guarantee")}
+            </span>
+            <span className="text-gray-300 hidden sm:inline">|</span>
+            <span className="text-sm text-gray-500">{t("note")}</span>
+          </div>
         </div>
       </div>
     </section>

@@ -1,9 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { ArrowRight, ChevronDown, CheckCircle2, Users } from "lucide-react";
+import { ArrowRight, ChevronDown, CheckCircle2, Users, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SwissCrossIcon } from "@/components/ui/swiss-cross";
 
 export function B2BHero() {
   const t = useTranslations("b2b.hero");
@@ -24,47 +23,51 @@ export function B2BHero() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-gray-900/70" />
 
-      {/* Swiss cross watermark */}
-      <svg className="pointer-events-none absolute right-10 top-10 opacity-[0.04]" width="300" height="300" viewBox="0 0 32 32" fill="none">
-        <path d="M14 8h4v6h6v4h-6v6h-4v-6H8v-4h6V8z" fill="white" />
-      </svg>
-
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
         <div className="max-w-3xl">
-          {/* Swiss badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white animate-fade-in-up">
-            <SwissCrossIcon size={14} />
-            100% Swiss
+          {/* Urgency badge */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[var(--color-mbl)]/20 border border-[var(--color-mbl)]/30 px-4 py-1.5 text-sm font-medium text-[var(--color-mbl)] animate-fade-in-up">
+            <Zap className="h-4 w-4" />
+            Offre de lancement — Places limitées
           </div>
 
           <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl animate-fade-in-up">
             {t("title")}
           </h1>
-          <p className="mt-6 text-lg text-gray-300 animate-fade-in-up animate-delay-100">
+          <p className="mt-6 text-lg text-gray-300 leading-relaxed animate-fade-in-up animate-delay-100">
             {t("subtitle")}
           </p>
 
           {/* Benefits list */}
-          <ul className="mt-8 space-y-3 animate-fade-in-up animate-delay-200">
+          <ul className="mt-8 space-y-4 animate-fade-in-up animate-delay-200">
             {(["benefit1", "benefit2", "benefit3"] as const).map((key) => (
-              <li key={key} className="flex items-center gap-3 text-white">
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--color-mbl)]" />
-                <span className="text-base sm:text-lg">{t(key)}</span>
+              <li key={key} className="flex items-start gap-3 text-white">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-400" />
+                <span className="text-base sm:text-lg font-medium">{t(key)}</span>
               </li>
             ))}
           </ul>
 
           {/* Social proof */}
-          <div className="mt-6 flex items-center gap-2 text-sm text-gray-400 animate-fade-in-up animate-delay-200">
-            <Users className="h-4 w-4" />
-            {t("socialProof")}
+          <div className="mt-8 flex items-center gap-3 animate-fade-in-up animate-delay-200">
+            <div className="flex -space-x-2">
+              {["M", "S", "A", "C"].map((letter, i) => (
+                <div key={i} className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-gray-900 bg-[var(--color-mbl)] text-xs font-bold text-white">
+                  {letter}
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <Users className="h-4 w-4" />
+              {t("socialProof")}
+            </div>
           </div>
 
           {/* CTAs */}
           <div className="mt-10 flex flex-col gap-4 sm:flex-row animate-fade-in-up animate-delay-300">
             <Button
               size="lg"
-              className="bg-[var(--color-mbl)] px-8 py-6 text-base font-semibold hover:bg-[var(--color-mbl-dark)]"
+              className="bg-[var(--color-mbl)] px-8 py-6 text-base font-semibold hover:bg-[var(--color-mbl-dark)] shadow-lg shadow-[var(--color-mbl)]/25 transition-all hover:shadow-xl hover:shadow-[var(--color-mbl)]/30 hover:-translate-y-0.5"
               onClick={() => scrollTo("b2b-contact")}
             >
               {t("cta")}

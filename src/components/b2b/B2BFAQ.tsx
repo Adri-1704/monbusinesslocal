@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
+const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"] as const;
 
 export function B2BFAQ() {
   const t = useTranslations("b2b.faq");

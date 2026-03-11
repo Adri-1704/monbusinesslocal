@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import { Mail, CheckCircle, Loader2 } from "lucide-react";
+import { Mail, CheckCircle, Loader2, Sparkles, Gift, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { subscribeToNewsletter } from "@/actions/newsletter";
@@ -40,14 +40,20 @@ export function NewsletterSection() {
     }
   };
 
+  const benefits = [
+    { icon: Sparkles, text: t("benefit1") },
+    { icon: Gift, text: t("benefit2") },
+    { icon: Bell, text: t("benefit3") },
+  ];
+
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl bg-gradient-to-r from-gray-900 to-gray-800 px-6 py-12 sm:px-12 sm:py-16">
+        <div className="rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-6 py-12 sm:px-12 sm:py-16">
           <div className="mx-auto max-w-2xl text-center">
             {isSuccess ? (
               <>
-                <CheckCircle className="mx-auto h-10 w-10 text-green-400" />
+                <CheckCircle className="mx-auto h-12 w-12 text-green-400" />
                 <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
                   {t("success")}
                 </h2>
@@ -59,9 +65,20 @@ export function NewsletterSection() {
                   {t("title")}
                 </h2>
                 <p className="mt-2 text-gray-400">{t("subtitle")}</p>
+
+                {/* Benefits */}
+                <div className="mt-6 flex flex-wrap justify-center gap-4">
+                  {benefits.map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-gray-300">
+                      <benefit.icon className="h-4 w-4 text-[var(--color-mbl)]" />
+                      {benefit.text}
+                    </div>
+                  ))}
+                </div>
+
                 <form
                   onSubmit={handleSubmit}
-                  className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center"
+                  className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center"
                 >
                   <Input
                     type="email"

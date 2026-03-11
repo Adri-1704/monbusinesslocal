@@ -1,8 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { UtensilsCrossed, MapPin, Star, ChefHat } from "lucide-react";
-import { SwissCrossIcon } from "@/components/ui/swiss-cross";
+import { Store, Grid3X3, Star, Heart } from "lucide-react";
 import { useIntersectionObserver, useAnimatedCounter } from "@/hooks/use-intersection-observer";
 
 function AnimatedStat({ target, suffix, label, icon: Icon }: {
@@ -14,18 +13,17 @@ function AnimatedStat({ target, suffix, label, icon: Icon }: {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.3 });
   const count = useAnimatedCounter(target, isVisible);
 
-  // Format large numbers (15000 -> 15K)
   const formatted = count >= 1000 ? `${Math.floor(count / 1000)}K` : `${count}`;
 
   return (
     <div ref={ref} className="text-center">
-      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white/20">
-        <Icon className="h-6 w-6 text-white" />
+      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-sm">
+        <Icon className="h-7 w-7 text-white" />
       </div>
-      <div className="mt-3 text-2xl font-bold text-white sm:text-3xl">
+      <div className="mt-3 text-3xl font-bold text-white sm:text-4xl">
         {formatted}{suffix}
       </div>
-      <div className="mt-1 text-sm text-white/80">{label}</div>
+      <div className="mt-1 text-sm font-medium text-white/80">{label}</div>
     </div>
   );
 }
@@ -34,16 +32,15 @@ export function StatsSection() {
   const t = useTranslations("stats");
 
   const stats = [
-    { icon: UtensilsCrossed, target: 500, suffix: "+", label: t("restaurants") },
-    { icon: MapPin, target: 26, suffix: "", label: t("cantons") },
-    { icon: Star, target: 15000, suffix: "+", label: t("reviews") },
-    { icon: ChefHat, target: 40, suffix: "+", label: t("cuisines") },
+    { icon: Store, target: 50, suffix: "+", label: t("restaurants") },
+    { icon: Grid3X3, target: 12, suffix: "", label: t("cantons") },
+    { icon: Star, target: 200, suffix: "+", label: t("reviews") },
+    { icon: Heart, target: 100, suffix: "%", label: t("cuisines") },
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[var(--color-mbl)] py-12 sm:py-16">
-      {/* Swiss cross pattern background */}
-      <div className="absolute inset-0 opacity-[0.06]">
+    <section className="relative overflow-hidden bg-gradient-to-r from-[var(--color-mbl)] to-[var(--color-mbl-dark)] py-14 sm:py-18">
+      <div className="absolute inset-0 opacity-[0.08]">
         <div className="grid h-full w-full grid-cols-8 gap-12 p-8">
           {Array.from({ length: 16 }).map((_, i) => (
             <svg key={i} width="24" height="24" viewBox="0 0 20 20" fill="none" className="text-white">
@@ -54,15 +51,13 @@ export function StatsSection() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Swiss Quality badge */}
-        <div className="mb-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2 text-sm font-medium text-white backdrop-blur-sm">
-            <SwissCrossIcon size={16} className="text-white" />
+        <div className="mb-10 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2 text-sm font-medium text-white backdrop-blur-sm">
             {t("swissQuality")}
-          </div>
+          </span>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
           {stats.map((stat, index) => (
             <AnimatedStat key={index} {...stat} />
           ))}
